@@ -241,6 +241,12 @@ span{
   min-width: 280px;
 }
 
+.typing-text container{
+  min-height: 2em; /* Adjust to fit your tallest text */
+  /* or use height: 2em; if you want it fixed */
+  overflow: hidden; /* Prevent overflow scrollbars */
+}
+
 .typing-text span{
   position: relative;
 }
