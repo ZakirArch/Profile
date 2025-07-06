@@ -30,7 +30,7 @@ body {
 
 header{
   margin-top: 20px;
-  position:fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -207,9 +207,9 @@ span{
 }
 
 .typing-text span:before{
-  content: "Software Developer";
+  content: "Web Developer";
   color: #b74b4b;
-  animation: words 7s infinite;
+  animation: words 6s infinite;
 }
 
 .typing-text span:after{
@@ -230,19 +230,16 @@ span{
 }
 
 @keyframes words{
-  0%,20%{
+  0%,25%{
     content: "Web Developer";
   }
-  21%,40%{
-    content: "Software developer";
-  }
-  41%,60%{
-    content: "Web Designer";
-  }
-  61%,80%{
+  26%,50%{
     content: "Bomb Designer";
   }
-  81%,100%{
+  51%,75%{
+    content: "Web Designer";
+  }
+  76%,100%{
     content: "Script Writer";
   }
 }
