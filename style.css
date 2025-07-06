@@ -443,3 +443,18 @@ span{
   font-weight: bold;
   transition: 0.3s;
 }
+
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); /* shadow effect */
+  display: none; /* hidden by default */
+  z-index: 1000; /* above content, below sidebar if needed */
+}
+.sidebar {
+  /* your sidebar styles */
+}
+.sidebar.open + .overlay {
+  display: block;
+}
