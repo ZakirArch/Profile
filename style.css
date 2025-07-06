@@ -6,6 +6,23 @@
   100% { background-color: rgb(255, 0, 0); }
 }
  
+ @media (max-width: 995px) {
+  header nav {
+    display: none;
+  }
+  .hamburger, .side-menu {
+    display: flex;
+  }
+}
+@media (min-width: 996px) {
+  .hamburger, .side-menu {
+    display: none !important;
+  }
+  header nav {
+    display: flex;
+  }
+}
+ 
 *{
   margin: 0;
   padding: 0;
@@ -176,7 +193,7 @@ span{
 }
 
 
-.social-icons a{
+.social-icons a {
   width: 4rem;
   height: 4rem;
   background-color: transparent;
@@ -290,4 +307,133 @@ span{
     width: 70vw;
     margin-top: 4rem;
   }
+}
+
+/* Hide the default checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Hamburger icon styles */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+
+/* Side menu styles */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px; /* hidden by default */
+  width: 250px;
+  height: 100vh;
+  background: black;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  transition: right 0.3s;
+  z-index: 1000;
+  padding-top: 60px; /* space for hamburger */
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.side-menu {
+  /* ...existing styles... */
+  padding: 60px 24px 24px 24px; /* top right bottom left */
+}
+
+.side-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Show menu when checked */
+.menu-toggle:checked ~ .side-menu {
+  right: 0;
+}
+
+/* Responsive: Show hamburger only on mobile */
+@media (min-width: 768px) {
+  .hamburger, .side-menu {
+    display: none;
+  }
+}
+
+
+.menu-toggle:checked ~ .side-menu {
+  right: 0;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 999;
+}
+
+.menu-toggle:checked ~ .menu-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Make sure the side-menu is above the overlay */
+.side-menu {
+  z-index: 1000;
+}
+
+/* Hide the overlay on desktop */
+@media (min-width: 996px) {
+  .menu-overlay {
+    display: none !important;
+  }
+}
+
+.hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1001;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 5px;
+  background: white;
+  border-radius: 3px;
+  margin: 6px 0;
+  font-weight: bold;
+  transition: 0.3s;
 }
