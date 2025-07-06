@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://uploads.onecompiler.io/43mr5vtvv/43pw6refr/images.png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+            color: #FF0000;
+            font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 70px - 52px); /* header + footer heights */
+            padding: 20px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 2px #FF0000, 0 0 4px #FF0000;
+            opacity: 0;
+            animation: fadeIn 1s 1s forwards, blink 1.5s 2s infinite;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeIn 1s 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .content {
+                min-height: calc(100vh - 54px - 38px); /* header + footer on mobile */
+            }
+            .sentence1::after {
+                content: "";
+                display: block;
+            }
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.85);
+            color: #FF0000;
+            font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #FF0000;
+            z-index: 2;
+            box-shadow: 0 -2px 8px #FF00003;
+        }
+        @media (max-width: 768px) {
+            .footer {
+                font-size: 0.85rem;
+                padding: 7px 0;
+            }
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 24px auto;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 100px;
+            border: 2px solid #FF0000;
+            box-shadow: 0 0 12px #FF00003, 0 0 2px #FF0000;
+            background: #111;
+            transition: box-shadow 0.3s;
+        }
+        .logo:hover {
+            box-shadow: 0 0 24px #FF0000, 0 0 8px #FF0000;
+        }
+        @media (max-width: 768px) {
+            .logo {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.85);
+            color: #FF0000;
+            font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+            padding: 18px 48px;
+            border-bottom: 1px solid #FF0000;
+            z-index: 10;
+            box-shadow: 0 2px 8px #FF00003;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .header-text {
+            margin-right: auto;
+        }
+        .Home-btn {
+            margin-left: 20px;
+            padding: 8px 20px;
+            background: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-size: 1rem;
+            font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 8px #FF00003, 0 0 2px #FF0000;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .Home-btn:hover {
+            background: #000;
+            color: #FF0000;
+            box-shadow: 0 0 16px #FF0000, 0 0 8px #FF0000;
+        }
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 12px 16px;
+                font-size: 1rem;
+            }
+            .Homeups-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+        }
+        .content {
+            margin-top: 70px;
+        }
+        @media (max-width: 768px) {
+            .content {
+                margin-top: 54px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <span class="header-text">./launch.sh</span>
+        <a href="index.html" class="Home-btn">Home</a>
+    </header>
+    <canvas id="matrix"></canvas>
+    <div class="content">
+        <img src="https://uploads.onecompiler.io/43mr5vtvv/43pw6refr/images.png" alt="ZakirArch logo" class="logo">
+        <h1>ZAKIRARCH</h1>
+        <p><span class="sentence1">Website under construction.</span> <span class="sentence2">It will be live soon.</span></p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('matrix');
+        const context = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const rainDrops = [];
+
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+
+        const draw = () => {
+            context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            context.fillStyle = '#FF0000';
+            context.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        const intervalId = setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // No need to restart the animation, it will adapt.
+        });
+
+    </script>
+    <footer class="footer">© 2025 All rights reserved<br>< Mohammad Zakirul Islam ></Mohammad></footer>
+</body>
+</html>
