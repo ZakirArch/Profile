@@ -249,8 +249,8 @@ span{
   font-size: 3.4rem; /* adjust as needed */
   font-weight: 600;
   color: #b74b4b;
-  min-height: 6rem; /* reserve enough space for tallest text */
-  max-height: 6rem;
+  min-height: 7rem; /* reserve enough space for tallest text */
+  max-height: 7rem;
   white-space: nowrap;
   overflow: hidden;
   position: relative;
@@ -281,9 +281,9 @@ span{
 
 @media (max-width: 600px) {
   .typing-text {
-    font-size: 2rem;
-    min-height: 3rem;
-    max-height: 3rem;
+    font-size: 3rem;
+    min-height: 4rem;
+    max-height: 4rem;
   }
 }     
 
