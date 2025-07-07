@@ -249,10 +249,11 @@ span{
   font-size: 3.4rem; /* adjust as needed */
   font-weight: 600;
   color: #b74b4b;
-  min-height: 3.5rem; /* reserve space to prevent layout shift */
-  position: relative;
+  min-height: 6rem; /* reserve enough space for tallest text */
+  max-height: 6rem;
   white-space: nowrap;
   overflow: hidden;
+  position: relative;
 }
 
 /* Blinking cursor animation */
@@ -270,13 +271,21 @@ span{
   color: #b74b4b;
   animation: blinkCursor 0.7s steps(1) infinite;
   font-weight: 900;
-  font-size: 4.2rem;       /* Desktop size */
+  font-size: 6rem;       /* Desktop size */
   line-height: 1;
   margin-left: 4px;
   vertical-align: bottom;
   user-select: none;
   text-shadow: 0 0 5px #b74b4b;
 }
+
+@media (max-width: 600px) {
+  .typing-text {
+    font-size: 2rem;
+    min-height: 3rem;
+    max-height: 3rem;
+  }
+}     
 
 /* Increase cursor size on smaller screens */
 @media (max-width: 600px) {
