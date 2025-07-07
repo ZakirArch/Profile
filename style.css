@@ -22,6 +22,8 @@
     display: flex;
   }
 }
+
+
  
 *{
   margin: 0;
@@ -43,6 +45,7 @@ body {
   overflow-x: hidden;
   background-color: black;
   color: white;
+   overflow-x: hidden;
 }
 
 header{
@@ -235,11 +238,60 @@ span{
  box-shadow: 0 0 25px #b74b4b;
 }
 
-.typing-text{
-  font-size: 34px;
-  font-weight: 600;
-  min-width: 280px;
+@media (max-width: 600px) {
+  .typing-text {
+    font-size: 2rem;
+    min-height: 2.5rem;
+  }
 }
+
+.typing-text {
+  font-size: 3.4rem; /* adjust as needed */
+  font-weight: 600;
+  color: #b74b4b;
+  min-height: 3.5rem; /* reserve space to prevent layout shift */
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Blinking cursor animation */
+@keyframes blinkCursor {
+  0%, 50% {
+    border-color: #b74b4b;
+  }
+  51%, 100% {
+    border-color: transparent;
+  }
+}
+
+.typing-text .cursor {
+  display: inline-block;
+  color: #b74b4b;
+  animation: blinkCursor 0.7s steps(1) infinite;
+  font-weight: 900;
+  font-size: 4.2rem;       /* Desktop size */
+  line-height: 1;
+  margin-left: 4px;
+  vertical-align: bottom;
+  user-select: none;
+  text-shadow: 0 0 5px #b74b4b;
+}
+
+/* Increase cursor size on smaller screens */
+@media (max-width: 600px) {
+  .typing-text .cursor {
+    font-size: 10rem;       /* Bigger on mobile */
+    margin-left: 6px;      /* Adjust margin if needed */
+  }
+}
+
+
+@keyframes blinkCursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
 
 .typing-text container{
   min-height: 2em; /* Adjust to fit your tallest text */
@@ -247,46 +299,10 @@ span{
   overflow: hidden; /* Prevent overflow scrollbars */
 }
 
+
+
 .typing-text span{
   position: relative;
-}
-
-.typing-text span:before{
-  content: "Web Developer";
-  color: #b74b4b;
-  animation: words 6s infinite;
-}
-
-.typing-text span:after{
-  content: "";
-  background-color: black;
-  position: absolute;
-  width: calc(100% + 8px);
-  height: 100%;
-  border-left: 3px solid black;
-  right: -8;
-  animation: cursor 0.6s infinite;
-}
-
-@keyframes cursor{
-  to{
-    border-left: 3px solid #b74b4b;
-  }    
-}
-
-@keyframes words{
-  0%,25%{
-    content: "Web Developer";
-  }
-  26%,50%{
-    content: "Bomb Designer";
-  }
-  51%,75%{
-    content: "Web Designer";
-  }
-  76%,100%{
-    content: "Script Writer";
-  }
 }
 
 @media (max-width: 1000px){
@@ -341,6 +357,8 @@ span{
   top: 0;
   right: -250px; /* hidden by default */
   width: 250px;
+  max-width: 80vw; /* or 250px, whichever is smaller */
+  box-sizing: border-box;
   height: 100vh;
   background: black;
   box-shadow: -2px 0 10px rgba(0,0,0,0.1);
@@ -348,6 +366,13 @@ span{
   z-index: 1000;
   padding-top: 60px; /* space for hamburger */
 }
+
+.menu-overlay {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 
 .side-menu ul {
   list-style: none;
